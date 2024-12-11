@@ -2,6 +2,6 @@
     {
         static void Main(string[] args)
         {
-        Homework.Lesson5.Run();
+        Homework.Lesson5.Demo();
         }
     }
