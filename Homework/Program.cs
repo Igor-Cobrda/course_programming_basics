@@ -10,7 +10,7 @@
 
 
             Console.WriteLine("Zoznam mien všetkých študentov:");
-            var zoznamMienStudentov = zoznamStudentov.Select(parent => parent._name);
+            var zoznamMienStudentov = zoznamStudentov.Select(student => student._name);
             foreach (var name in zoznamMienStudentov)
             {
                 Console.Write(name + " ");
@@ -20,41 +20,50 @@
 
 
             Console.WriteLine("Študenti ktorý majú aspoň jednu známku vyššiu ako 90:");
-            var zoznamNajlepsichStudentov = zoznamStudentov.Where(parent => (parent._grades[0] > 90 || parent._grades[1] > 90 || parent._grades[2] > 90));
+            var zoznamNajlepsichStudentov = zoznamStudentov.Where(student => student._grades.Any(e => e > 90));
             foreach (var student in zoznamNajlepsichStudentov)
             {
-                Console.WriteLine(student._name + "  " + student._age + " - " + student._grades[0] + " " + student._grades[1] + " " + student._grades[2]);
+                Console.Write(student._name + "  " + student._age + " -");
+                foreach (var znamka in student._grades)
+                {
+                    Console.Write(" " + znamka);
+                }
+                Console.WriteLine();
             }
             Console.WriteLine();
 
 
             Console.WriteLine("Overenie či existuje študent, ktorý má všetky známky väčšie ako 80:");
-            var existujeStudent80 = zoznamStudentov.Any(parent => parent._grades[0] > 80 && parent._grades[1] > 80 && parent._grades[2] > 80);
+            var existujeStudent80 = zoznamStudentov.Any(student => student._grades.All(e => e > 80));
             if (existujeStudent80) { Console.WriteLine("Študent existuje"); }
             else { Console.WriteLine("Študent neexistuje"); }
             Console.WriteLine();
 
 
             Console.WriteLine("Zoznam známok všetkých študentov:");
-            var zoznamZnamokStudentov = zoznamStudentov.SelectMany(parent => parent._grades);
-            int i = 0;
+            var zoznamZnamokStudentov = zoznamStudentov.SelectMany(student => student._grades);
             foreach (var student in zoznamZnamokStudentov)
             {
                 Console.Write(student + ",");
-                i++;
             }
             Console.WriteLine();
             Console.WriteLine();
 
 
             Console.WriteLine("Zoradenie študentov podľa veku:");
-            var zoradenyZoznamPodlaVeku = zoznamStudentov.OrderBy(parent => parent._age);
+            var zoradenyZoznamPodlaVeku = zoznamStudentov.OrderBy(student => student._age);
             foreach (var student in zoradenyZoznamPodlaVeku)
             {
-                Console.WriteLine(student._name + "  " + student._age + " - " + student._grades[0] + " " + student._grades[1] + " " + student._grades[2]);
+                Console.Write(student._name + "  " + student._age + " -");
+                foreach (var znamka in student._grades)
+                {
+                    Console.Write(" " + znamka);
+                }
+                Console.WriteLine();
             }
             Console.WriteLine();
         }
+
 
         static List<Student> vytvorZoznamStudentov()
         {

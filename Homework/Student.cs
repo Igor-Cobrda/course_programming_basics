@@ -16,7 +16,12 @@
 
         internal void DisplayStudentInfo()
         {
-            Console.WriteLine(_name + "  " + _age + " - " + _grades[0] + " " + _grades[1] + " " + _grades[2]);
+            Console.Write(_name + "  " + _age + " -");
+            foreach (var znamka in _grades)
+            {
+                Console.Write(" " + znamka);
+            }
+            Console.WriteLine();
         }
     }
 }
