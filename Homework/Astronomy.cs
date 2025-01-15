@@ -1,7 +1,7 @@
 ﻿namespace Homework
 {
-    internal class Astronomy
+    public class Astronomy
     {
-        internal Astro astro {  get; set; }
+        public Astro astro {  get; set; }
     }
 }

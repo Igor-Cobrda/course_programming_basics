@@ -1,14 +1,17 @@
-﻿namespace Homework
+﻿using System.Text.Json.Serialization;
+namespace Homework
 {
-    internal class Astro
+    public class Astro
     {
-        internal string sunrise {  get; set; }
-        internal string sunset { get; set; }
-        internal string moonrise { get; set; }
-        internal string moonset { get; set; }
-        internal string moon_phase { get; set; }
-        internal int moon_illumination { get; set; }
-        internal int is_moon_up { get; set; }
-        internal int is_sun_up { get; set; }
+        [JsonPropertyName("sunrise")]
+        public string SunRise {  get; set; }
+        [JsonPropertyName("sunset")]
+        public string SunSet { get; set; }
+        [JsonPropertyName("moonrise")]
+        public string MoonRise { get; set; }
+        [JsonPropertyName("moonset")]
+        public string MoonSet { get; set; }
+        [JsonPropertyName("moon_illumination")]
+        public int MoonIllumination { get; set; }
     }
 }

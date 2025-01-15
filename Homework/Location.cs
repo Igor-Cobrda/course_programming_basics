@@ -1,14 +1,19 @@
-﻿namespace Homework
+﻿using System.Text.Json.Serialization;
+namespace Homework
 {
-    internal class Location
+    public class Location
     {
-        internal string name {  get; set; }
-        internal string region { get; set; }
-        internal string country { get; set; }
-        internal double lat { get; set; }
-        internal double lon { get; set; }
-        internal string tz_id { get; set; }
-        internal long localtime_epoch { get; set; }
-        internal DateTime localtime_time { get; set; }
+        [JsonPropertyName("name")]
+        public string Name {  get; set; }
+        [JsonPropertyName("region")]
+        public string Region { get; set; }
+        [JsonPropertyName("country")]
+        public string Country { get; set; }
+        [JsonPropertyName("lat")]
+        public double Lat { get; set; }
+        [JsonPropertyName("lon")]
+        public double Lon { get; set; }
+        [JsonPropertyName("localtime")]
+        public string LocalTime { get; set; }
     }
 }

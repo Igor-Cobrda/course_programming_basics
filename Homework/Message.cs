@@ -1,8 +1,8 @@
 ﻿namespace Homework
 {
-    internal class Message
+    public class Message
     {
-        internal Location location { get; set; }
-        internal Astronomy astronomy { get; set; }
+        public Location location { get; set; }
+        public Astronomy astronomy { get; set; }
     }
 }
